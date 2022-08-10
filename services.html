@@ -8,19 +8,26 @@
      
     <meta name="viewport"
         content="width=device-width, initial-scale=1">
-  <style>
-     hr {
-  width: 0%;
-  min-width: 20%;
-  max-width: 100%;
-  margin: 0 auto;
-  border: none;
-  border-bottom: 1px solid #666;
-  position: relative;
-  transition: box-shadow 200ms ease-in-out;
-  box-shadow: 0px 0px 0px 0px #f9f9f9;
+ <style>
+   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-    body{
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	font-size: 15px;
+	line-height: 1.7;
+	color: #ececee;
 	background-color: #1f2029;
   background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
   background-position: center;
@@ -29,247 +36,258 @@
   height: 100vh;
   width: 100%;
 }
-    /* wildcard styling */
-    * {
-       box-sizing: border-box;
-       border-radius:11px;
-    }
-     
-    /* padding for whole body */
-    body {
-        padding: 15px;
-    }
-     
-    /* styling body */
-    .container {
-        max-width: 1200px;
-        margin: auto;
-    }
-     
-    h1 {
-        color: green;
-    }
-     
-    /* anchor tag decoration */
-    a {
-        text-decoration: none;
-        color: #5673C8;
-    }
-     
-    a:hover {
-        color: lightblue;
-    }
-     
-    /* paragraph tag decoration */
-    p {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 4;
-        overflow: hidden;
- 
-    }
-     
-    /* row and column decoration */
-    .row {
-        margin: 0px -18px;
-        padding: 8px;
-    }
-     
-    .row > .column {
-        padding: 6px;
-    }
-     
-    .column {
-        float: left;
-        width: 25%;
-    }
-     
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-     
-    /* content decoration */
-    .content {
-        background-color: white;
-        padding: 10px;
-        border: 1px solid gray;
-    }
-     
-    /* window size 850 width set */
-    @media screen and (max-width: 850px) {
-        .column {
-            width: 50%;
-        }
-    }
- 
-    /* window size 400 width set */
-    @media screen and (max-width: 400px) {
-        .column {
-            width: 100%;
-        }
-    }
-</style>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+body .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px 0;
+}
+
+body .container .card {
+  position: relative;
+  min-width: 320px;
+  height: 440px;
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin: 30px;
+  transition: 0.5s;
+}
+
+body .container .card:nth-child(1) .box .content a {
+  background: #2196f3;
+}
+
+body .container .card:nth-child(2) .box .content a {
+  background: #e91e63;
+}
+
+body .container .card:nth-child(3) .box .content a {
+  background: #23c186;
+}
+
+body .container .card .box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: #2a2b2f;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+body .container .card .box:hover {
+  transform: translateY(-50px);
+}
+
+body .container .card .box:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+body .container .card .box .content {
+  padding: 20px;
+  text-align: center;
+}
+
+body .container .card .box .content h2 {
+  position: absolute;
+  top: -10px;
+  right: 30px;
+  font-size: 8rem;
+  color: rgba(255, 255, 255, 0.1);
+}
+
+body .container .card .box .content h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  z-index: 1;
+  transition: 0.5s;
+  margin-bottom: 15px;
+}
+
+body .container .card .box .content p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+body .container .card .box .content a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 20px;
+  background: black;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  margin-top: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+body .container .card .box .content a:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  background: #fff;
+  color: #000;
+}
+
+
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
- 
 <body>
-      <a href = "index.html" style="position:absolute; top: 30px;
+       <a href = "index.html" style="position:absolute;  top: 30px;
   left: 30px;"><i class="fa fa-arrow-circle-left fa-3x"></i></a>
-    <!-- title and tag -->
-    <div class="container">
-        <h3 style="text-align:center;color:white;">Welcome to Our Services Portal</h3>
-        <hr>
-  
-        <!-- Content of the body-->
-        <div class="row">
-            <div class="column">
-                <div class="content">
-                    <img src=
-"https://www.geeksforgeeks.org/wp-content/uploads/html.png"
-                        alt="" style="width:100%">
-                    <h3>
-                        <a href="#">Orthopaedics</a>
-                    </h3>
-                     
- 
- 
- 
-<p>
-                       Orthopedic surgery or orthopedics, is the branch of surgery concerned with conditions involving the musculoskeletal system.
-	Orthopedic surgeons use both surgical and nonsurgical means to treat musculoskeletal trauma, spine diseases, sports injuries, degenerative diseases, infections, tumors, and congenital disorders.
-                    </p>
- 
- 
- 
- 
-                </div>
-            </div>
-             
-            <div class="column">
-                <div class="content">
-                    <img src=
-"https://www.geeksforgeeks.org/wp-content/uploads/CSS.png"
-                        alt="" style="width:100%">
-                    <h3>
-                        <a href="#">Obstetrics and Gynaecology</a>
-                    </h3>
-                     
-                     
- 
- 
- 
-<p>
-                        Obstetrics and Gynaecology (also spelled as Obstetrics and Gynecology; abbreviated as Obs and Gynae, O&G, OB-GYN and OB/GYN) is the medical specialty that encompasses the two subspecialties of obstetrics (covering pregnancy, childbirth, and the postpartum period) and gynecology (covering the health of the female reproductive system – vagina, uterus, ovaries, and breasts).
-                    </p>
- 
- 
- 
- 
-                </div>
-            </div>
-             
-            <div class="column">
-                <div class="content">
-                    <img src=
-"https://www.geeksforgeeks.org/wp-content/uploads/php-1.png"
-                        alt="" style="width:100%">
-                    <h3>
-                        <a href="#">Foetal Monitor for Antenatal Non Stress Test</a>
-                    </h3>
-                     
-                     
- 
- 
- 
-<p>
-                        A nonstress test is a common prenatal test used to check on a baby's health. During a nonstress test, the baby's heart rate is monitored to see how it responds to the baby's movements.
-	The term "nonstress" refers to the fact that nothing is done to place stress on the baby during the test.
-                    </p>
- 
- 
- 
- 
-                </div>
-            </div>
-        </div>
-	    <div class="row">
-            <div class="column">
-                <div class="content">
-                    <img src=
-"https://www.geeksforgeeks.org/wp-content/uploads/CSS.png"
-                        alt="" style="width:100%">
-                    <h3>
-                        <a href="#">Obstetrics and Gynaecology</a>
-                    </h3>
-                     
-                     
- 
- 
- 
-<p>
-                        Obstetrics and Gynaecology (also spelled as Obstetrics and Gynecology; abbreviated as Obs and Gynae, O&G, OB-GYN and OB/GYN) is the medical specialty that encompasses the two subspecialties of obstetrics (covering pregnancy, childbirth, and the postpartum period) and gynecology (covering the health of the female reproductive system – vagina, uterus, ovaries, and breasts).
-                    </p>
- 
- 
- 
- 
-                </div>
-            </div>
-             
-            <div class="column">
-                <div class="content">
-                    <img src=
-"https://www.geeksforgeeks.org/wp-content/uploads/php-1.png"
-                        alt="" style="width:100%">
-                    <h3>
-                        <a href="#">Foetal Monitor for Antenatal Non Stress Test</a>
-                    </h3>
-                     
-                     
- 
- 
- 
-<p>
-                        A nonstress test is a common prenatal test used to check on a baby's health. During a nonstress test, the baby's heart rate is monitored to see how it responds to the baby's movements.
-	The term "nonstress" refers to the fact that nothing is done to place stress on the baby during the test.
-                    </p>
- 
- 
- 
- 
-                </div>
-            </div>
-             
-            <div class="column">
-                <div class="content">
-                    <img src=
-"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx_Xn4q-GPPBrQlon6swoKNxxjQpBV5bTd_buHZzjWbw&s"
-                        alt="" style="width:100%">
-                    <h3>
-                        <a href="#">Foetal Anomaly Scan</a>
-                    </h3>
-                     
-                     
- 
- 
- 
-<p>
-                        The anomaly scan, also sometimes called the anatomy scan, 20-week ultrasound, or level 2 ultrasound, evaluates anatomic structures of the fetus, placenta, and maternal pelvic organs.
-	This scan is an important and common component of routine prenatal care.
-                    </p>
- 
- 
- 
- 
-                </div>
-            </div>
-        </div>
+  <div class="container">
+  <div class="card">
+    <div class="box">
+      <div class="content">
+        <h2>01</h2>
+        <h3>Psychiatry</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+        <a href="#">Read More</a>
+      </div>
     </div>
-	    <div style="position:absolute;  bottom: 30px;
-  left: 30px; font-size:20px;"><i class="fa fa-copyright"> Irla Nursing Home 2022</i><i class="fa fa-alien"></i> Created by <div style="color: #000000; font-family: 'cursive'; font-size: 15px;">Aadi Palnitkar</div></div>
+  </div>
+
+  <div class="card">
+    <div class="box">
+      <div class="content">
+        <h2>02</h2>
+        <h3>Adult & Geriatric Medicine</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="box">
+      <div class="content">
+        <h2>03</h2>
+        <h3>General Surgery</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="container">
+  <div class="card">
+    <div class="box">
+      <div class="content">
+        <h2>04</h2>
+        <h3>Laparoscopy</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="box">
+      <div class="content">
+        <h2>05</h2>
+        <h3>Foetal Anomaly Scan</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="box">
+      <div class="content">
+        <h2>06</h2>
+        <h3>Foetal Monitor for Antenatal Non Stress Test</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="container">
+  <div class="card">
+    <div class="box">
+      <div class="content">
+        <h2>07</h2>
+        <h3>Orthopaedics</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="box">
+      <div class="content">
+        <h2>08</h2>
+        <h3>Obstetrics and Gynaecology</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="box">
+      <div class="content">
+        <h2>09</h2>
+        <h3>Paediatric Medicine & Surgery</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="container">
+  <div class="card">
+    <div class="box">
+      <div class="content">
+        <h2>10</h2>
+        <h3>Digital X-ray/Full Colour Doppler/Echo Cardiography</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="box">
+      <div class="content">
+        <h2>11</h2>
+        <h3>Modern Pathology Lab</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="box">
+      <div class="content">
+        <h2>12</h2>
+        <h3>I.C.C.U. with Ventilator</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
-  
 </html>
